@@ -36,4 +36,8 @@ public class BlockCommand {
     public static Map<Location, BlockCommand> getAll() {
         return blockCommands;
     }
+
+    public static void add(BlockCommand blockCommand) {
+        getAll().put(blockCommand.getLocation(), blockCommand);
+    }
 }
