@@ -3,9 +3,16 @@ version: ${project.version}
 main: ${package}
 author: Chazza
 website: https://plugins.gg
+softdepend: ["PlaceholderAPI"]
 
 commands:
   blockcommands:
     description: ${plugin} commands
     usage: ""
     aliases: ["bcommands"]
+
+permissions:
+  bcommands.add:
+    description: Ability to add commands to blocks
+  bcommands.reload:
+    description: Ability to reload configuration file

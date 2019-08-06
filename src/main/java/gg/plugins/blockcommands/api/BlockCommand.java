@@ -1,5 +1,6 @@
 package gg.plugins.blockcommands.api;
 
+import gg.plugins.blockcommands.hook.PlaceholderAPIHook;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
@@ -27,6 +28,7 @@ public class BlockCommand {
 
     public void execute(Player player) {
         getCommands().forEach(command -> {
+            command = PlaceholderAPIHook.setPlaceholders(player, command);
             command = command.replace("%player%", player.getName());
             command = command.replace("%uuid%", player.getUniqueId().toString());
             Bukkit.dispatchCommand(Bukkit.getConsoleSender(), command);

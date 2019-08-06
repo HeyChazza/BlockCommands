@@ -56,7 +56,7 @@ public class BlockCommands extends JavaPlugin implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
         if (args.length == 0) {
-            sender.sendMessage(ChatColor.GRAY + "Running " + getDescription().getName() + " on v" + getDescription().getVersion() + " by " + getDescription().getAuthors().get(0) + ".");
+            sender.sendMessage(Common.translate(getConfig().getString("messages.main", "&8[&fBlockCommands&8] &7A simple, easy to use plugin for adding commands to blocks.")));
             return true;
         }
 
