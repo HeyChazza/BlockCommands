@@ -1,6 +1,7 @@
 package gg.plugins.blockcommands;
 
 import gg.plugins.blockcommands.api.BlockCommand;
+import gg.plugins.blockcommands.util.Common;
 import gg.plugins.blockcommands.util.LocSerializer;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
@@ -62,9 +63,9 @@ public class BlockCommands extends JavaPlugin implements CommandExecutor {
         if (args[0].equalsIgnoreCase("reload")) {
             if (sender.hasPermission("bcommands.reload")) {
                 pull(true);
-                sender.sendMessage(ChatColor.GREEN + "Configuration reloaded.");
+                sender.sendMessage(Common.translate(getConfig().getString("messages.reload", "&7Configuration reloaded.")));
             } else {
-                sender.sendMessage(ChatColor.RED + "You don't have permission to do that.");
+                sender.sendMessage(Common.translate(getConfig().getString("messages.permission", "&7You don't have permission to do that.")));
             }
             return true;
         } else if (args[0].equalsIgnoreCase("add")) {
@@ -81,10 +82,12 @@ public class BlockCommands extends JavaPlugin implements CommandExecutor {
                     getConfig().set("blocks." + LocSerializer.toString(location) + ".commands", blockCommand.getCommands());
                     saveConfig();
 
-                    sender.sendMessage(ChatColor.GREEN + "Block added, edit the commands in the configuration file.");
+                    player.sendMessage(Common.translate(getConfig().getString("messages.add", "&7Block added.")));
+                } else {
+                    sender.sendMessage(Common.translate(getConfig().getString("messages.player", "&7You must be a player to do that.")));
                 }
             } else {
-                sender.sendMessage(ChatColor.RED + "You don't have permission to do that.");
+                sender.sendMessage(Common.translate(getConfig().getString("messages.permission", "&7You don't have permission to do that.")));
             }
             return true;
         }
