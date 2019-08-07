@@ -3,9 +3,7 @@ package gg.plugins.blockcommands;
 import gg.plugins.blockcommands.api.BlockCommand;
 import gg.plugins.blockcommands.util.Common;
 import gg.plugins.blockcommands.util.LocSerializer;
-import org.bukkit.ChatColor;
 import org.bukkit.Location;
-import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -26,7 +24,7 @@ public class BlockCommands extends JavaPlugin implements CommandExecutor {
     }
 
     public void pull(boolean reload) {
-        if(reload) reloadConfig();
+        if (reload) reloadConfig();
         else saveDefaultConfig();
 
         BlockCommand.blockCommands = new HashMap<>();
@@ -70,13 +68,11 @@ public class BlockCommands extends JavaPlugin implements CommandExecutor {
             return true;
         } else if (args[0].equalsIgnoreCase("add")) {
             if (sender.hasPermission("bcommands.add")) {
-
                 if (sender instanceof Player) {
                     Player player = (Player) sender;
                     Block block = player.getTargetBlock(null, 5);
-                    if (block.getType() == Material.AIR) return false;
-
                     Location location = block.getLocation();
+
                     BlockCommand blockCommand = new BlockCommand(location, Arrays.asList("msg %player% Go to 'config.yml' to edit this."));
                     BlockCommand.add(blockCommand);
                     getConfig().set("blocks." + LocSerializer.toString(location) + ".commands", blockCommand.getCommands());
@@ -90,6 +86,28 @@ public class BlockCommands extends JavaPlugin implements CommandExecutor {
                 sender.sendMessage(Common.translate(getConfig().getString("messages.permission", "&7You don't have permission to do that.")));
             }
             return true;
+        } else if (args[0].equalsIgnoreCase("remove")) {
+            if (sender.hasPermission("bcommands.remove")) {
+                if (sender instanceof Player) {
+                    Player player = (Player) sender;
+                    Block block = player.getTargetBlock(null, 5);
+                    Location location = block.getLocation();
+
+                    BlockCommand blockCommand = BlockCommand.getAll().get(block.getLocation());
+                    if (blockCommand == null) return false;
+
+                    BlockCommand.remove(blockCommand);
+                    getConfig().set("blocks." + LocSerializer.toString(location), null);
+                    saveConfig();
+
+                    player.sendMessage(Common.translate(getConfig().getString("messages.remove", "&7Block removed.")));
+                } else {
+                    sender.sendMessage(Common.translate(getConfig().getString("messages.player", "&7You must be a player to do that.")));
+                }
+            } else {
+                sender.sendMessage(Common.translate(getConfig().getString("messages.permission", "&7You don't have permission to do that.")));
+            }
+
         }
         return false;
     }

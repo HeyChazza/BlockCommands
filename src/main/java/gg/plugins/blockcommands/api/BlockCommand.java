@@ -42,4 +42,7 @@ public class BlockCommand {
     public static void add(BlockCommand blockCommand) {
         getAll().put(blockCommand.getLocation(), blockCommand);
     }
+    public static void remove(BlockCommand blockCommand) {
+        getAll().remove(blockCommand.getLocation());
+    }
 }

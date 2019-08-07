@@ -3,6 +3,7 @@
 messages:
       main: "&8[&fBlockCommands&8] &7A simple, easy to use plugin for adding commands to blocks."
       add: "&8[&fBlockCommands&8] &aSuccess! &7Configure commands in configuration file."
+      remove: "&8[&fBlockCommands&8] &aSuccess! &7Block has been removed."
       reload: "&8[&fBlockCommands&8] &aConfiguration reloaded."
       player: "&8[&fBlockCommands&8] &7You must be a player to do that."
       permission: "&8[&fBlockCommands&8] &7You don't have permission to do that."
