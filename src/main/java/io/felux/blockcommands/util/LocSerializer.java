@@ -1,4 +1,4 @@
-package gg.plugins.blockcommands.util;
+package io.felux.blockcommands.util;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Location;

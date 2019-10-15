@@ -1,4 +1,4 @@
-package gg.plugins.blockcommands.hook;
+package io.felux.blockcommands.hook;
 
 import me.clip.placeholderapi.PlaceholderAPI;
 import org.bukkit.Bukkit;

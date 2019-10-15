@@ -1,7 +1,7 @@
-package gg.plugins.blockcommands.api;
+package io.felux.blockcommands.api;
 
-import gg.plugins.blockcommands.hook.PlaceholderAPIHook;
-import org.bukkit.Bukkit;
+import io.felux.blockcommands.hook.PlaceholderAPIHook;
+import io.felux.blockcommands.util.ActionHandler;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
 
@@ -31,7 +31,7 @@ public class BlockCommand {
             command = PlaceholderAPIHook.setPlaceholders(player, command);
             command = command.replace("%player%", player.getName());
             command = command.replace("%uuid%", player.getUniqueId().toString());
-            Bukkit.dispatchCommand(Bukkit.getConsoleSender(), command);
+            ActionHandler.executeActions(player, command);
         });
     }
 

@@ -1,6 +1,6 @@
-package gg.plugins.blockcommands;
+package io.felux.blockcommands;
 
-import gg.plugins.blockcommands.api.BlockCommand;
+import io.felux.blockcommands.api.BlockCommand;
 import org.bukkit.Bukkit;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;

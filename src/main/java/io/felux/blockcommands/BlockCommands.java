@@ -1,8 +1,8 @@
-package gg.plugins.blockcommands;
+package io.felux.blockcommands;
 
-import gg.plugins.blockcommands.api.BlockCommand;
-import gg.plugins.blockcommands.util.Common;
-import gg.plugins.blockcommands.util.LocSerializer;
+import io.felux.blockcommands.api.BlockCommand;
+import io.felux.blockcommands.util.Common;
+import io.felux.blockcommands.util.LocSerializer;
 import org.bukkit.Location;
 import org.bukkit.block.Block;
 import org.bukkit.command.Command;
@@ -73,7 +73,7 @@ public class BlockCommands extends JavaPlugin implements CommandExecutor {
                     Block block = player.getTargetBlock(null, 5);
                     Location location = block.getLocation();
 
-                    BlockCommand blockCommand = new BlockCommand(location, Arrays.asList("msg %player% Go to 'config.yml' to edit this."));
+                    BlockCommand blockCommand = new BlockCommand(location, Arrays.asList("[CONSOLE] msg %player% Go to 'config.yml' to edit this.", "[PLAYER] me Yay!"));
                     BlockCommand.add(blockCommand);
                     getConfig().set("blocks." + LocSerializer.toString(location) + ".commands", blockCommand.getCommands());
                     saveConfig();
