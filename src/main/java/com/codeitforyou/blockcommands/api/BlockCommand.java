@@ -1,7 +1,7 @@
-package io.felux.blockcommands.api;
+package com.codeitforyou.blockcommands.api;
 
-import io.felux.blockcommands.hook.PlaceholderAPIHook;
-import io.felux.blockcommands.util.ActionHandler;
+import com.codeitforyou.blockcommands.hook.PlaceholderAPIHook;
+import com.codeitforyou.blockcommands.util.ActionHandler;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
 

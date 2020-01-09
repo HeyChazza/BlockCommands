@@ -1,6 +1,6 @@
-package io.felux.blockcommands;
+package com.codeitforyou.blockcommands;
 
-import io.felux.blockcommands.api.BlockCommand;
+import com.codeitforyou.blockcommands.api.BlockCommand;
 import org.bukkit.Bukkit;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;

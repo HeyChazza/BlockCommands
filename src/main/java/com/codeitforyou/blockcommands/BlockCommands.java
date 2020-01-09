@@ -1,8 +1,8 @@
-package io.felux.blockcommands;
+package com.codeitforyou.blockcommands;
 
-import io.felux.blockcommands.api.BlockCommand;
-import io.felux.blockcommands.util.Common;
-import io.felux.blockcommands.util.LocSerializer;
+import com.codeitforyou.blockcommands.util.Common;
+import com.codeitforyou.blockcommands.api.BlockCommand;
+import com.codeitforyou.blockcommands.util.LocSerializer;
 import org.bukkit.Location;
 import org.bukkit.block.Block;
 import org.bukkit.command.Command;

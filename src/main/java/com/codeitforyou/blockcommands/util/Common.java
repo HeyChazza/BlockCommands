@@ -1,4 +1,4 @@
-package io.felux.blockcommands.util;
+package com.codeitforyou.blockcommands.util;
 
 import org.bukkit.ChatColor;
 import org.bukkit.Material;

@@ -1,4 +1,4 @@
-package io.felux.blockcommands.hook;
+package com.codeitforyou.blockcommands.hook;
 
 import me.clip.placeholderapi.PlaceholderAPI;
 import org.bukkit.Bukkit;
